@@ -86,7 +86,8 @@ class Film {
   
   
   countBtn.addEventListener("click", () => {
-    const total = films.reduce((sum, film) => sum + film.reviews, 0);
+    let total = 0;
+    films.forEach(film => total += film.reviews);
     totalReviewsEl.textContent = `Total reviews: ${total.toLocaleString()}`;
   });
   
