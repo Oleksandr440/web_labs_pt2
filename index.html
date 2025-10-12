@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Films View Page</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="filmcard.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#">Super Films</a>
+      <a href="create.html" class="create-link">Create Film</a>
+    </nav>
+    <div>
+      <input type="text" id="searchInput" placeholder="I'm looking for...">
+      <button class="search-btn" id="searchBtn">Search</button>
+      <button class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <h3>Manage films</h3>
+      <div class="switch">
+        <span>Sort by most reviewed</span>
+        <input type="checkbox" id="sortToggle">
+      </div>
+
+      <hr>
+
+      <p>Count total reviews:</p>
+      <button class="count-btn" id="countBtn">Count</button>
+      <p id="totalReviews">Total reviews: 0</p>
+    </div>
+
+    <div class="films-container" id="filmsContainer">
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
