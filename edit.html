@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Film</title>
+  <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Edit Film</h2>
+
+    <form id="editForm">
+      <label>Title:</label>
+      <input type="text" id="title" required>
+
+      <label>Duration (min):</label>
+      <input type="number" id="duration" required>
+
+      <label>Reviews:</label>
+      <input type="number" id="reviews" required>
+
+      <label>Description:</label>
+      <textarea id="description" required></textarea>
+
+      <label>Image:</label>
+      <input type="text" id="image" required>
+
+      <button type="submit">Save changes</button>
+    </form>
+  </div>
+    
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <p id="modalMessage"></p>
+      <button>OK</button>
+    </div>
+  </div>
+
+<script src="edit.js"></script>
+</body>
+</html>
