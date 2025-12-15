@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, increaseQuantity, decreaseQuantity } from '../redux/actions';
+import { removeFromCart, increaseQuantity, decreaseQuantity, clearCart } from '../redux/actions';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import { useNavigate } from 'react-router-dom';
 import './CartPage.css';
@@ -11,6 +11,12 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleClearCart = () => {
+    if (window.confirm("Are you sure you want to remove all items?")) {
+      dispatch(clearCart());
+    }
+  };
 
   return (
     <div className="cart-page-wrapper">
@@ -51,12 +57,16 @@ const CartPage = () => {
                 </button>
               </div>
             ))}
-
           </div>
 
           <div className="cart-summary">
+            
+              <button className="clear-cart-btn" onClick={handleClearCart}>
+                  Clear Cart 🗑️
+              </button>
+
              <h2>Total: ${totalAmount.toFixed(2)}</h2>
-             <PrimaryButton text="Checkout" onClick={() => alert("Checkout logic coming soon!")} />
+             <PrimaryButton text="Checkout" onClick={() => navigate('/checkout')} />
           </div>
         </div>
       )}
