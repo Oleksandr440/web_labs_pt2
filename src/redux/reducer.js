@@ -1,7 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_CART } from './actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, 
+    CLEAR_CART, LOGIN_USER, LOGOUT_USER} from './actions';
 
 const initialState = {
-    cartItems: []
+    cartItems: [],
+    user: localStorage.getItem('userEmail') || null
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -52,6 +54,21 @@ export const cartReducer = (state = initialState, action) => {
         case CLEAR_CART:
             return {
                 ...state,
+                cartItems: []
+            };
+
+        case LOGIN_USER:
+            localStorage.setItem('userEmail', action.payload);
+            return {
+                ...state,
+                user: action.payload
+            };
+
+        case LOGOUT_USER:
+            localStorage.removeItem('userEmail');
+            return {
+                ...state,
+                user: null,
                 cartItems: []
             };
 
